@@ -23,12 +23,12 @@ async function wordSearch(word) {
     italic.innerHTML = `${data[0].meanings[0].partOfSpeech}`;
     // container.appendChild(italic)
     wordMeaning.innerHTML = data[0].meanings[0].definitions[0].definition;
-    if (data[0].meanings[0].definitions[0].example == undefined) {
+    if (!data[0].meanings[0].definitions[0].example) {
     } else {
       wordExample.innerHTML = `<strong>Sentence - </strong>${data[0].meanings[0].definitions[0].example}`;
     }
     const sound = new Audio(data[0].phonetics[0].audio);
-    if (sound == undefined) {
+    if (!sound) {
       alert("No sound");
     } else {
       audio.addEventListener("click", () => {
